@@ -20,10 +20,15 @@ async function deleteDemand(id) {
     return await DemandRepository.deleteDemand(id);
 }
 
+async function getDemand(id) {
+    return await DemandRepository.getDemand(id);
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
     updateDelivered,
-    deleteDemand
+    deleteDemand,
+    getDemand
 }

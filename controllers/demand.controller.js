@@ -78,10 +78,27 @@ async function deleteDemand(req, res) {
     }
 }
 
+async function getDemand(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (!id) {
+            throw new Error("Id required!");
+        }
+
+        res.send(await DemandService.getDemand(id));
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
     updateDelivered,
-    deleteDemand
+    deleteDemand,
+    getDemand
 }
