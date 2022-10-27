@@ -10,5 +10,5 @@ app.use(express.json());
 app.use("/demand", DemandRouter);
 
 app.listen(3000, () => {
-    console.log("API rodando com sucesso!")
+    console.log("API Started on http://localhost:3000/demand")
 });

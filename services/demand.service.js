@@ -12,8 +12,13 @@ async function updateDemand(demand) {
     return await DemandRepository.updateDemand(demand);
 }
 
+async function updateDelivered(demand) {
+    return await DemandRepository.updateDelivered(demand);
+}
+
 export default {
     getDemands,
     createDemand,
-    updateDemand
+    updateDemand,
+    updateDelivered
 }
