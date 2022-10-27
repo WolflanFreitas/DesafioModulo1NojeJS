@@ -94,11 +94,28 @@ async function getDemand(req, res) {
     }
 }
 
+async function getTotalPerClient(req, res) {
+    try {
+        const cliente = req.body.cliente;
+
+        if (!cliente) {
+            throw new Error("Name of client required!");
+        }
+
+        res.send(await DemandService.getTotalPerClient(cliente));
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
     updateDelivered,
     deleteDemand,
-    getDemand
+    getDemand,
+    getTotalPerClient
 }

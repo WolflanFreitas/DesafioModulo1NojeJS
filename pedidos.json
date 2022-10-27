@@ -1,7 +1,6 @@
 {
   "nextId": 526,
-  "pedidos": [
-    {
+  "pedidos": [{
       "id": 2,
       "cliente": "Tália Simas",
       "produto": "Pizza Napolitana",
@@ -629,7 +628,7 @@
       "id": 81,
       "cliente": "Heloísa Sobreira",
       "produto": "Pizza Frango com Catupiry",
-      "valor": 29,
+      "valor": 29.33,
       "entregue": true,
       "timestamp": "2021-05-02T19:48:09.765Z"
     },

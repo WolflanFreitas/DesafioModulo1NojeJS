@@ -24,11 +24,29 @@ async function getDemand(id) {
     return await DemandRepository.getDemand(id);
 }
 
+async function getTotalPerClient(cliente) {
+    const pedidos = await DemandRepository.getDemandsPerClient(cliente);
+    const pedidosEntregues = pedidos.filter(demand => demand.entregue === true);
+
+    const valorInicial = 0;
+    const totalDosPedidosDoCliente = pedidosEntregues.reduce((acumulador, current) =>
+        acumulador + current.valor, valorInicial
+    );
+    // let total = 0;
+    // pedidosEntregues.forEach(element => {
+    //     total += element.valor;
+    // });
+    // console.log(total);
+    // return "" + parseFloat(total);
+    return totalDosPedidosDoCliente.toFixed(2);
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
     updateDelivered,
     deleteDemand,
-    getDemand
+    getDemand,
+    getTotalPerClient
 }

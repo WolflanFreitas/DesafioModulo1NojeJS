@@ -91,11 +91,26 @@ async function getDemand(id) {
     return persistentData.pedidos[index];
 }
 
+async function getDemandsPerClient(cliente) {
+    const persistentData = JSON.parse(await readFile(global.fileName));
+
+    const index = persistentData.pedidos.findIndex(a => a.cliente === cliente);
+
+    if (index === -1) {
+        throw new Error("Cliente não encontrado!");
+    }
+
+    persistentData.pedidos = persistentData.pedidos.filter(demand => demand.cliente === cliente);
+
+    return persistentData.pedidos;
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
     updateDelivered,
     deleteDemand,
-    getDemand
+    getDemand,
+    getDemandsPerClient
 }
