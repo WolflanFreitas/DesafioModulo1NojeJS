@@ -41,6 +41,23 @@ async function getTotalPerClient(cliente) {
     return totalDosPedidosDoCliente.toFixed(2);
 }
 
+async function getTotalPerProduct(product) {
+    const pedidos = await DemandRepository.getDemandsPerProduct(product);
+    const pedidosEntregues = pedidos.filter(demand => demand.entregue === true);
+
+    const valorInicial = 0;
+    const totalDosPedidosDoProduto = pedidosEntregues.reduce((acumulador, current) =>
+        acumulador + current.valor, valorInicial
+    );
+    // let total = 0;
+    // pedidosEntregues.forEach(element => {
+    //     total += element.valor;
+    // });
+    // console.log(total);
+    // return "" + parseFloat(total);
+    return totalDosPedidosDoProduto.toFixed(2);
+}
+
 export default {
     getDemands,
     createDemand,
@@ -48,5 +65,6 @@ export default {
     updateDelivered,
     deleteDemand,
     getDemand,
-    getTotalPerClient
+    getTotalPerClient,
+    getTotalPerProduct
 }

@@ -110,6 +110,22 @@ async function getTotalPerClient(req, res) {
     }
 }
 
+async function getTotalPerProduct(req, res) {
+    try {
+        const produto = req.body.produto;
+
+        if (!produto) {
+            throw new Error("Name of product required!");
+        }
+
+        res.send(await DemandService.getTotalPerProduct(produto));
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+}
+
 export default {
     getDemands,
     createDemand,
@@ -117,5 +133,6 @@ export default {
     updateDelivered,
     deleteDemand,
     getDemand,
-    getTotalPerClient
+    getTotalPerClient,
+    getTotalPerProduct
 }

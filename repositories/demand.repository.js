@@ -105,6 +105,20 @@ async function getDemandsPerClient(cliente) {
     return persistentData.pedidos;
 }
 
+async function getDemandsPerProduct(product) {
+    const persistentData = JSON.parse(await readFile(global.fileName));
+
+    const index = persistentData.pedidos.findIndex(a => a.produto === product);
+
+    if (index === -1) {
+        throw new Error("Produto não encontrado!");
+    }
+
+    persistentData.pedidos = persistentData.pedidos.filter(demand => demand.produto === product);
+
+    return persistentData.pedidos;
+}
+
 export default {
     getDemands,
     createDemand,
@@ -112,5 +126,6 @@ export default {
     updateDelivered,
     deleteDemand,
     getDemand,
-    getDemandsPerClient
+    getDemandsPerClient,
+    getDemandsPerProduct
 }
