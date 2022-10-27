@@ -1,11 +1,11 @@
 {
-  "nextId": 523,
+  "nextId": 526,
   "pedidos": [
     {
       "id": 1,
-      "cliente": "Lavínia Dâmaso",
-      "produto": "Pizza Muçarela",
-      "valor": 26,
+      "cliente": "buceta2",
+      "produto": "buceta_molhada",
+      "valor": 666,
       "entregue": true,
       "timestamp": "2021-05-02T19:48:09.765Z"
     },
@@ -4169,6 +4169,30 @@
       "valor": 100,
       "entregue": false,
       "timestamp": "2022-10-27T13:09:18.681Z"
+    },
+    {
+      "id": 523,
+      "cliente": "cliente",
+      "produto": "produto",
+      "valor": 100,
+      "entregue": false,
+      "timestamp": "2022-10-27T13:24:13.560Z"
+    },
+    {
+      "id": 524,
+      "cliente": "cliente",
+      "produto": "produto",
+      "valor": 100,
+      "entregue": false,
+      "timestamp": "2022-10-27T13:24:44.884Z"
+    },
+    {
+      "id": 525,
+      "cliente": "cliente",
+      "produto": "produto",
+      "valor": 100,
+      "entregue": false,
+      "timestamp": "2022-10-27T13:24:45.850Z"
     }
   ]
 }
