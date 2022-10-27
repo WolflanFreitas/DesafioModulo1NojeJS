@@ -16,9 +16,14 @@ async function updateDelivered(demand) {
     return await DemandRepository.updateDelivered(demand);
 }
 
+async function deleteDemand(id) {
+    return await DemandRepository.deleteDemand(id);
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
-    updateDelivered
+    updateDelivered,
+    deleteDemand
 }

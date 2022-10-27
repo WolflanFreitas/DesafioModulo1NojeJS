@@ -63,9 +63,26 @@ async function updateDelivered(demand) {
     return persistentData.pedidos[index];
 }
 
+async function deleteDemand(id) {
+
+    const persistentData = JSON.parse(await readFile(global.fileName));
+
+    const index = persistentData.pedidos.findIndex(a => a.id === parseInt(id));
+
+    if (index === -1) {
+        throw new Error("Pedido não encontrado!");
+    }
+
+    persistentData.pedidos = persistentData.pedidos.filter(demand => demand.id !== parseInt(id));
+    await writeFile(global.fileName, JSON.stringify(persistentData, null, 2));
+
+    return "Pedido excluído com sucesso";
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
-    updateDelivered
+    updateDelivered,
+    deleteDemand
 }

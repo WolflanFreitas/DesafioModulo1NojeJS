@@ -2,14 +2,6 @@
   "nextId": 526,
   "pedidos": [
     {
-      "id": 1,
-      "cliente": "buceta2",
-      "produto": "buceta_molhada",
-      "valor": 666,
-      "entregue": false,
-      "timestamp": "2021-05-02T19:48:09.765Z"
-    },
-    {
       "id": 2,
       "cliente": "Tália Simas",
       "produto": "Pizza Napolitana",
@@ -70,14 +62,6 @@
       "cliente": "Ricardo Pirajá",
       "produto": "Pizza a Moda",
       "valor": 31,
-      "entregue": true,
-      "timestamp": "2021-05-02T19:48:09.765Z"
-    },
-    {
-      "id": 10,
-      "cliente": "Godofredo Brandán",
-      "produto": "Pizza Muçarela",
-      "valor": 26,
       "entregue": true,
       "timestamp": "2021-05-02T19:48:09.765Z"
     },

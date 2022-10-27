@@ -7,5 +7,6 @@ router.get("/", DemandController.getDemands);
 router.post("/", DemandController.createDemand);
 router.put("/", DemandController.updateDemand);
 router.patch("/", DemandController.updateDelivered);
+router.delete("/:id", DemandController.deleteDemand);
 
 export default router;

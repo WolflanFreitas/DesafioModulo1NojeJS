@@ -62,9 +62,26 @@ async function updateDelivered(req, res) {
     }
 }
 
+async function deleteDemand(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (!id) {
+            throw new Error("Id required!");
+        }
+
+        res.send(await DemandService.deleteDemand(id));
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+}
+
 export default {
     getDemands,
     createDemand,
     updateDemand,
-    updateDelivered
+    updateDelivered,
+    deleteDemand
 }
