@@ -4,6 +4,11 @@ async function getDemands() {
     return await DemandRepository.getDemands();
 }
 
+async function createDemand(demand) {
+    return await DemandRepository.createDemand(demand);
+}
+
 export default {
-    getDemands
+    getDemands,
+    createDemand
 }

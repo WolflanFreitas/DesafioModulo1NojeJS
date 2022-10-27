@@ -3,6 +3,7 @@ import DemandController from "../controllers/demand.controller.js";
 
 const router = express.Router();
 
-router.get("/teste", DemandController.getDemands);
+router.get("/", DemandController.getDemands);
+router.post("/", DemandController.createDemand);
 
 export default router;

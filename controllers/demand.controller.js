@@ -10,6 +10,23 @@ async function getDemands(req, res) {
     }
 }
 
+async function createDemand(req, res) {
+    try {
+        let demand = req.body;
+
+        if (!demand.cliente || !demand.produto || !demand.valor) {
+            throw new Error("Nome do cliente, produto ou valor não presentes no Body da requisição!");
+        }
+
+        res.send(await DemandService.createDemand(demand));
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        })
+    }
+}
+
 export default {
-    getDemands
+    getDemands,
+    createDemand
 }
