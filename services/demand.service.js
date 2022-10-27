@@ -58,6 +58,23 @@ async function getTotalPerProduct(product) {
     return totalDosPedidosDoProduto.toFixed(2);
 }
 
+async function getTopSelling() {
+    const pedidos = await DemandRepository.getDemands();
+
+    const nomeDosProdutos = [...new Set(pedidos.map((element) => element.produto))];
+
+    let resultado = [];
+
+    nomeDosProdutos.forEach((element) => {
+        resultado.push({
+            "produto": element,
+            "quantidadeVendida": pedidos.filter((value) => value.produto === element).filter((value) => value.entregue === true).length
+        })
+    })
+    resultado.sort((a, b) => b.quantidadeVendida - a.quantidadeVendida);
+    return resultado;
+}
+
 export default {
     getDemands,
     createDemand,
@@ -66,5 +83,6 @@ export default {
     deleteDemand,
     getDemand,
     getTotalPerClient,
-    getTotalPerProduct
+    getTotalPerProduct,
+    getTopSelling
 }

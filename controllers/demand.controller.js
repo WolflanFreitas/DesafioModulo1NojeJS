@@ -126,6 +126,17 @@ async function getTotalPerProduct(req, res) {
     }
 }
 
+async function getTopSelling(req, res) {
+    try {
+
+        res.send(await DemandService.getTopSelling());
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        });
+    }
+}
+
 export default {
     getDemands,
     createDemand,
@@ -134,5 +145,6 @@ export default {
     deleteDemand,
     getDemand,
     getTotalPerClient,
-    getTotalPerProduct
+    getTotalPerProduct,
+    getTopSelling
 }

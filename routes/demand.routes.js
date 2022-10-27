@@ -11,5 +11,6 @@ router.delete("/:id", DemandController.deleteDemand);
 router.get("/:id", DemandController.getDemand);
 router.post("/total/client", DemandController.getTotalPerClient);
 router.post("/total/product", DemandController.getTotalPerProduct);
+router.get("/produtos/maisvendidos", DemandController.getTopSelling);
 
 export default router;
